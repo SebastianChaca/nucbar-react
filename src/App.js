@@ -1,41 +1,31 @@
 import React from 'react';
-import {
-  ChakraProvider,
-  Box,
-  Text,
-  Link,
-  VStack,
-  Code,
-  Grid,
-  theme,
-} from '@chakra-ui/react';
-import { ColorModeSwitcher } from './ColorModeSwitcher';
-import { Logo } from './Logo';
+import { ChakraProvider, extendTheme } from '@chakra-ui/react';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { Public } from './Routes/Public/Public';
+import { Provider } from 'react-redux';
+import { store, persistor } from './Redux/Store/store';
+import { PersistGate } from 'redux-persist/integration/react';
 
 function App() {
+  const theme = extendTheme({
+    colors: {
+      nucba: {
+        100: '#f7fafc',
+        // ...
+        900: '#1a202c',
+      },
+    },
+  });
   return (
-    <ChakraProvider theme={theme}>
-      <Box textAlign="center" fontSize="xl">
-        <Grid minH="100vh" p={3}>
-          <ColorModeSwitcher justifySelf="flex-end" />
-          <VStack spacing={8}>
-            <Logo h="40vmin" pointerEvents="none" />
-            <Text>
-              Edit <Code fontSize="xl">src/App.js</Code> and save to reload.
-            </Text>
-            <Link
-              color="teal.500"
-              href="https://chakra-ui.com"
-              fontSize="2xl"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learn Chakra
-            </Link>
-          </VStack>
-        </Grid>
-      </Box>
-    </ChakraProvider>
+    <Provider store={store}>
+      <PersistGate persistor={persistor}>
+        <ChakraProvider theme={theme}>
+          <Router>
+            <Public />
+          </Router>
+        </ChakraProvider>
+      </PersistGate>
+    </Provider>
   );
 }
 
