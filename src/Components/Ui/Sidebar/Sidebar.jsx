@@ -11,7 +11,7 @@ import {
   Grid,
 } from '@chakra-ui/react';
 
-import { TextHoverDrawer } from '../../../Shared/SharedComponents';
+import { TextHoverDrawer } from '../../Shared/SharedComponents';
 
 const Sidebar = ({ isOpen, onClose }) => {
   return (
