@@ -7,32 +7,14 @@ import { store, persistor } from './Redux/Store/store';
 import { PersistGate } from 'redux-persist/integration/react';
 import { Layout } from './Routes/Layout/Layout';
 import { Card } from './Components/Card/Card';
-
+import { theme } from './Chakra/Theme';
 function App() {
-  const theme = extendTheme({
-    styles: {
-      global: {
-        'html, body': {
-          backgroundColor: '#eceae9',
-        },
-      },
-    },
-    colors: {
-      nucba: {
-        100: '#f7fafc',
-        // ...
-        900: '#1a202c',
-      },
-    },
-  });
   return (
     <Provider store={store}>
       <PersistGate persistor={persistor}>
         <ChakraProvider theme={theme}>
           <Router>
-            <Layout>
-              <Card />
-            </Layout>
+            <Layout></Layout>
             <Public />
           </Router>
         </ChakraProvider>

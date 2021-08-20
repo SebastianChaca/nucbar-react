@@ -5,7 +5,11 @@ import {
   FormLabel,
   Input,
   FormControl,
+  InputRightElement,
+  Button,
+  InputGroup,
 } from '@chakra-ui/react';
+import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
 const CHANGE = 'CHANGE';
 const TOUCHE = 'TOUCHE';
 
@@ -63,16 +67,30 @@ export const InputCustom = props => {
         mt="10px"
       >
         <FormLabel> {props.label}</FormLabel>
-        <Input
-          id={props.id}
-          type={props.type}
-          placeholder={props.placeholder}
-          onChange={changeHandler}
-          onBlur={toucheHandler}
-          value={inputState.value}
-          variant="flushed"
-          isInvalid={!inputState.isValid && inputState.isTouche}
-        />
+        <InputGroup>
+          <Input
+            id={props.id}
+            type={props.type}
+            placeholder={props.placeholder}
+            onChange={changeHandler}
+            onBlur={toucheHandler}
+            value={inputState.value}
+            isInvalid={!inputState.isValid && inputState.isTouche}
+            variant="outline"
+          />
+          {props.id === 'password' && (
+            <InputRightElement width="3rem">
+              <Button
+                h="1.5rem"
+                size="sm"
+                mr="25px"
+                onClick={props.handlePasswordVisibility}
+              >
+                {props.showPassword ? <ViewIcon /> : <ViewOffIcon />}
+              </Button>
+            </InputRightElement>
+          )}
+        </InputGroup>
         {!inputState.isValid && inputState.isTouche && (
           <FormErrorMessage mb="5px">{props.errorText}</FormErrorMessage>
         )}
