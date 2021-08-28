@@ -16,7 +16,6 @@ const TOUCHE = 'TOUCHE';
 export const inputReducer = (state, action) => {
   switch (action.type) {
     case CHANGE:
-      console.log(validate(action.val, action.validator));
       return {
         ...state,
         value: action.val,
@@ -64,7 +63,7 @@ export const InputCustom = props => {
       type: TOUCHE,
     });
   };
-  console.log('isvalid: ' + isValid);
+
   return (
     <div>
       <FormControl isInvalid={!isValid} mt="10px">
@@ -80,7 +79,7 @@ export const InputCustom = props => {
             isInvalid={!isValid && inputState.isTouche}
             variant="outline"
           />
-          {props.id === 'password' && (
+          {(props.id === 'password' || props.id === 'confirmPassword') && (
             <InputRightElement width="3rem">
               <Button
                 h="1.5rem"

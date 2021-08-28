@@ -4,6 +4,7 @@ const VALIDATOR_TYPE_MAXLENGTH = 'MAXLENGTH';
 const VALIDATOR_TYPE_MIN = 'MIN';
 const VALIDATOR_TYPE_MAX = 'MAX';
 const VALIDATOR_TYPE_EMAIL = 'EMAIL';
+const VALIDATOR_TYPE_PASSWORD = 'PASSWORD';
 
 export const VALIDATOR_REQUIRE = () => ({ type: VALIDATOR_TYPE_REQUIRE });
 export const VALIDATOR_MINLENGTH = val => ({
@@ -26,9 +27,12 @@ export const VALIDATOR_EMAIL = val => ({
   type: VALIDATOR_TYPE_EMAIL,
   val: val,
 });
+export const VALIDATOR_PASSWORD = val => ({
+  type: VALIDATOR_TYPE_PASSWORD,
+  val: val,
+});
 
 export const validate = (value, validators = []) => {
-  let isValid = true;
   const obj = { isValid: true, msgErr: null };
 
   for (const validator of validators) {
@@ -56,13 +60,16 @@ export const validate = (value, validators = []) => {
           !obj.isValid && `Ingresa un máximo de ${validator.val} caracteres`;
       }
     }
-    if (validator.type === VALIDATOR_TYPE_MIN) {
-      isValid = isValid && +value >= validator.val;
+    // if (validator.type === VALIDATOR_TYPE_MIN) {
+    //   isValid = isValid && +value >= validator.val;
+    // }
+    // if (validator.type === VALIDATOR_TYPE_MAX) {
+    //   isValid = isValid && +value <= validator.val;
+    // }
+    if (validator.type === VALIDATOR_TYPE_PASSWORD) {
+      obj.isValid = obj.isValid && value.trim() === validator.val;
+      obj.msgErr = !obj.isValid && `Las contraseñas deben ser identicas`;
     }
-    if (validator.type === VALIDATOR_TYPE_MAX) {
-      isValid = isValid && +value <= validator.val;
-    }
-
     if (validator.type === VALIDATOR_TYPE_EMAIL) {
       obj.isValid = obj.isValid && /^\S+@\S+\.\S+$/.test(value);
       obj.msgErr = !obj.isValid && `Ingresá un email valido`;
