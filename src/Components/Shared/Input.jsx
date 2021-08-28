@@ -16,10 +16,11 @@ const TOUCHE = 'TOUCHE';
 export const inputReducer = (state, action) => {
   switch (action.type) {
     case CHANGE:
+      console.log(validate(action.val, action.validator));
       return {
         ...state,
         value: action.val,
-        isValid: validate(action.val, action.validator),
+        validate: validate(action.val, action.validator),
       };
 
     case TOUCHE:
@@ -36,12 +37,16 @@ export const InputCustom = props => {
   const [inputState, dispatch] = useReducer(inputReducer, {
     value: props.initialValue || '',
     isTouche: false,
-    isValid: props.initialValid || false,
+    validate: {
+      isValid: props.initialValid || false,
+      msgErr: null,
+    },
   });
 
-  const { isValid, value } = inputState;
+  const { validate, value } = inputState;
+  const { isValid, msgErr } = validate;
   const { onInput, id } = props;
-
+  console.log(msgErr);
   useEffect(() => {
     onInput(id, value, isValid);
   }, [id, value, isValid, onInput]);
@@ -62,10 +67,7 @@ export const InputCustom = props => {
 
   return (
     <div>
-      <FormControl
-        isInvalid={!inputState.isValid && inputState.isTouche}
-        mt="10px"
-      >
+      <FormControl isInvalid={!isValid} mt="10px">
         <FormLabel> {props.label}</FormLabel>
         <InputGroup>
           <Input
@@ -91,8 +93,8 @@ export const InputCustom = props => {
             </InputRightElement>
           )}
         </InputGroup>
-        {!inputState.isValid && inputState.isTouche && (
-          <FormErrorMessage mb="5px">{props.errorText}</FormErrorMessage>
+        {!isValid && inputState.isTouche && msgErr && (
+          <FormErrorMessage mb="5px">{msgErr}</FormErrorMessage>
         )}
       </FormControl>
     </div>

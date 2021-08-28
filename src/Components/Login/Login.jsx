@@ -1,7 +1,12 @@
 import React, { useState } from 'react';
 import InputCustom from '../Shared/Input';
 import useForm from '../../Hooks/useForm';
-import { VALIDATOR_REQUIRE } from '../../Utils/validator';
+import {
+  VALIDATOR_REQUIRE,
+  VALIDATOR_EMAIL,
+  VALIDATOR_MINLENGTH,
+  VALIDATOR_MAXLENGTH,
+} from '../../Utils/validator';
 import { Button } from '@chakra-ui/react';
 import FormContainer from './FormContainer';
 export const Login = () => {
@@ -10,10 +15,10 @@ export const Login = () => {
     {
       password: {
         value: '',
-        isValid: false,
+        validate: { isValid: false },
       },
 
-      email: { value: '', isValid: false },
+      email: { value: '', validate: { isValid: false } },
     },
     false
   );
@@ -27,21 +32,21 @@ export const Login = () => {
         id="email"
         label="E-mail"
         onInput={inputHandler}
-        validators={[VALIDATOR_REQUIRE()]}
+        validators={[VALIDATOR_MINLENGTH(5), VALIDATOR_MAXLENGTH(10)]}
         errorText="Ingrese un email"
         showPassword={showPassword}
         handlePasswordVisibility={handlePasswordVisibility}
       />
-      <InputCustom
+      {/* <InputCustom
         type={showPassword ? 'text' : 'password'}
         id="password"
         label="Password"
         onInput={inputHandler}
-        validators={[VALIDATOR_REQUIRE()]}
+        validators={[VALIDATOR_REQUIRE(), VALIDATOR_MINLENGTH(8)]}
         errorText="Ingrese una contraseña"
         handlePasswordVisibility={handlePasswordVisibility}
         showPassword={showPassword}
-      />
+      /> */}
       <Button
         bg="nucba.btn"
         mt="25px"
