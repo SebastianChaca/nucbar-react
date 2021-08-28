@@ -30,7 +30,7 @@ export const VALIDATOR_EMAIL = val => ({
 export const validate = (value, validators = []) => {
   let isValid = true;
   const obj = { isValid: true, msgErr: null };
-  // console.log('validators: ', validators);
+
   for (const validator of validators) {
     if (validator.type === VALIDATOR_TYPE_REQUIRE) {
       obj.isValid = obj.isValid && value.trim().length > 0;
@@ -39,7 +39,6 @@ export const validate = (value, validators = []) => {
 
     if (validator.type === VALIDATOR_TYPE_MINLENGTH) {
       const max = validators.find(v => v.type === 'MAXLENGTH');
-      const maxVal = max ? max.val : 0;
 
       obj.isValid = obj.isValid && value.trim().length >= validator.val;
       obj.msgErr =
@@ -65,9 +64,10 @@ export const validate = (value, validators = []) => {
     }
 
     if (validator.type === VALIDATOR_TYPE_EMAIL) {
-      isValid = isValid && /^\S+@\S+\.\S+$/.test(value);
+      obj.isValid = obj.isValid && /^\S+@\S+\.\S+$/.test(value);
+      obj.msgErr = !obj.isValid && `Ingresa un email valido`;
     }
   }
-  console.log(obj);
+
   return obj;
 };

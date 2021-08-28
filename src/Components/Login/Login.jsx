@@ -25,6 +25,7 @@ export const Login = () => {
   const handlePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
+
   return (
     <FormContainer>
       <InputCustom
@@ -32,21 +33,21 @@ export const Login = () => {
         id="email"
         label="E-mail"
         onInput={inputHandler}
-        validators={[VALIDATOR_MINLENGTH(5), VALIDATOR_MAXLENGTH(10)]}
+        validators={[VALIDATOR_EMAIL(formState.inputs.email.value)]}
         errorText="Ingrese un email"
         showPassword={showPassword}
         handlePasswordVisibility={handlePasswordVisibility}
       />
-      {/* <InputCustom
+      <InputCustom
         type={showPassword ? 'text' : 'password'}
         id="password"
         label="Password"
         onInput={inputHandler}
-        validators={[VALIDATOR_REQUIRE(), VALIDATOR_MINLENGTH(8)]}
+        validators={[VALIDATOR_MINLENGTH(5), VALIDATOR_MAXLENGTH(10)]}
         errorText="Ingrese una contraseña"
         handlePasswordVisibility={handlePasswordVisibility}
         showPassword={showPassword}
-      /> */}
+      />
       <Button
         bg="nucba.btn"
         mt="25px"

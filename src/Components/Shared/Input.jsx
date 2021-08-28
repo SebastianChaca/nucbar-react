@@ -46,7 +46,7 @@ export const InputCustom = props => {
   const { validate, value } = inputState;
   const { isValid, msgErr } = validate;
   const { onInput, id } = props;
-  console.log(msgErr);
+
   useEffect(() => {
     onInput(id, value, isValid);
   }, [id, value, isValid, onInput]);
@@ -64,7 +64,7 @@ export const InputCustom = props => {
       type: TOUCHE,
     });
   };
-
+  console.log('isvalid: ' + isValid);
   return (
     <div>
       <FormControl isInvalid={!isValid} mt="10px">
@@ -77,7 +77,7 @@ export const InputCustom = props => {
             onChange={changeHandler}
             onBlur={toucheHandler}
             value={inputState.value}
-            isInvalid={!inputState.isValid && inputState.isTouche}
+            isInvalid={!isValid && inputState.isTouche}
             variant="outline"
           />
           {props.id === 'password' && (
@@ -93,7 +93,7 @@ export const InputCustom = props => {
             </InputRightElement>
           )}
         </InputGroup>
-        {!isValid && inputState.isTouche && msgErr && (
+        {!isValid && inputState.isTouche && (
           <FormErrorMessage mb="5px">{msgErr}</FormErrorMessage>
         )}
       </FormControl>
