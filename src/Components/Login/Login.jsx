@@ -34,7 +34,6 @@ export const Login = () => {
         label="E-mail"
         onInput={inputHandler}
         validators={[VALIDATOR_EMAIL(formState.inputs.email.value)]}
-        errorText="Ingrese un email"
         showPassword={showPassword}
         handlePasswordVisibility={handlePasswordVisibility}
       />
@@ -44,7 +43,6 @@ export const Login = () => {
         label="Password"
         onInput={inputHandler}
         validators={[VALIDATOR_MINLENGTH(5), VALIDATOR_MAXLENGTH(10)]}
-        errorText="Ingrese una contraseña"
         handlePasswordVisibility={handlePasswordVisibility}
         showPassword={showPassword}
       />
