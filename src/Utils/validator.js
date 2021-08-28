@@ -51,7 +51,7 @@ export const validate = (value, validators = []) => {
       const minVal = min ? min.val : 0;
 
       if (value.trim().length >= minVal) {
-        obj.isValid = obj.isValid && value.trim().length >= validator.val;
+        obj.isValid = obj.isValid && value.trim().length <= validator.val;
         obj.msgErr =
           !obj.isValid && `Ingresa un máximo de ${validator.val} caracteres`;
       }
