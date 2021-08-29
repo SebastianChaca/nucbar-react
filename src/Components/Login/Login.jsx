@@ -78,7 +78,7 @@ export const Login = () => {
             id="name"
             label="Nombre"
             onInput={inputHandler}
-            validators={[VALIDATOR_REQUIRE()]}
+            validators={[VALIDATOR_REQUIRE(), VALIDATOR_MAXLENGTH(10)]}
           />
         )}
         <InputCustom

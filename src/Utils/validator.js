@@ -42,17 +42,13 @@ export const validate = (value, validators = []) => {
     }
 
     if (validator.type === VALIDATOR_TYPE_MINLENGTH) {
-      const max = validators.find(v => v.type === 'MAXLENGTH');
-
       obj.isValid = obj.isValid && value.trim().length >= validator.val;
       obj.msgErr =
-        !obj.isValid &&
-        value.trim().length < max.val &&
-        `Ingresa un mánimo de ${validator.val} caracteres`;
+        !obj.isValid && `Ingresa un mánimo de ${validator.val} caracteres`;
     }
     if (validator.type === VALIDATOR_TYPE_MAXLENGTH) {
       const min = validators.find(v => v.type === 'MINLENGTH');
-      const minVal = min ? min.val : 0;
+      const minVal = min ? min.val : 1;
 
       if (value.trim().length >= minVal) {
         obj.isValid = obj.isValid && value.trim().length <= validator.val;
@@ -72,7 +68,7 @@ export const validate = (value, validators = []) => {
     }
     if (validator.type === VALIDATOR_TYPE_EMAIL) {
       obj.isValid = obj.isValid && /^\S+@\S+\.\S+$/.test(value);
-      obj.msgErr = !obj.isValid && `Ingresá un email valido`;
+      obj.msgErr = !obj.isValid && `Ingresá un email válido`;
     }
   }
 
