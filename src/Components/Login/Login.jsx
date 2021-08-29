@@ -14,6 +14,9 @@ import { Box, Button } from '@chakra-ui/react';
 import FormContainer from './FormContainer';
 import { LinkText } from './LinkText';
 import useFetch from '../../Hooks/useFetch';
+import { useDispatch } from 'react-redux';
+import { setCurrentUser } from '../../Redux/Actions/userActions';
+
 export const Login = () => {
   const [loginMode, setLoginMode] = useState(true);
   const [showPassword, setShowPassword] = useState(false);
@@ -26,6 +29,8 @@ export const Login = () => {
     setShowPassword(!showPassword);
   };
   const { response, error, loading, fetchData } = useFetch();
+  const dispatch = useDispatch();
+
   const handleFormMode = () => {
     if (loginMode) {
       setFormData(RegisterForm(formState.inputs), false);
@@ -41,6 +46,11 @@ export const Login = () => {
         identifier: email.value,
         password: password.value,
       });
+      if (response) {
+        console.log('im in');
+        console.log(response);
+        dispatch(setCurrentUser(response.data));
+      }
     } else {
       fetchData('post', `${url}/auth/local/register`, {
         username: name.value,
@@ -51,7 +61,7 @@ export const Login = () => {
   };
   return (
     <>
-      {error && (
+      {!response && error && (
         <Box textAlign="center" mt="20px" mb="20px" color="red">
           Se produjo un errro, intentalo de nuevo.
         </Box>

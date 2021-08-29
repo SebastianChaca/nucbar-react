@@ -2,7 +2,6 @@ import { SET_CURRENT_USER, START_FETCHING_USER } from '../Actions/userActions';
 
 const INITIAL_STATE = {
   currentUser: null,
-  hiddenMenu: true,
   loading: false,
 };
 
@@ -13,7 +12,8 @@ const userReducer = (state = INITIAL_STATE, action) => {
     case SET_CURRENT_USER:
       return {
         ...state,
-        currentUser: action.payload,
+        currentUser: action.payload.user,
+        token: action.payload.jwt,
         loading: false,
       };
 

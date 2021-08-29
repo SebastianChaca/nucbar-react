@@ -10,8 +10,8 @@ const useFetch = () => {
 
     try {
       const response = await axios({ method, url, data });
-      const dataReponse = await response.json();
-      setResponse(dataReponse);
+
+      setResponse(response);
     } catch (error) {
       setError(error.message);
     } finally {
