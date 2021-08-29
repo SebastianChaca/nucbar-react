@@ -14,7 +14,7 @@ import { Box, Button } from '@chakra-ui/react';
 import FormContainer from './FormContainer';
 import { LinkText } from './LinkText';
 import useFetch from '../../Hooks/useFetch';
-import { useDispatch } from 'react-redux';
+
 import { setCurrentUser } from '../../Redux/Actions/userActions';
 
 export const Login = () => {
@@ -29,8 +29,6 @@ export const Login = () => {
     setShowPassword(!showPassword);
   };
   const { response, error, loading, fetchData } = useFetch();
-
-  const dispatch = useDispatch();
 
   const handleFormMode = () => {
     if (loginMode) {

@@ -8,7 +8,6 @@ const useFetch = () => {
   const dispatch = useDispatch();
   const fetchData = async (method, url, data, action) => {
     setLoading(true);
-
     try {
       const response = await axios({ method, url, data }).then(r => {
         dispatch(action(r.data));
