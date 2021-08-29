@@ -45,7 +45,7 @@ export const TextHoverDrawer = ({ children, link, onClose }) => {
 export const LogBtn = ({ display }) => {
   return (
     <Button colorScheme="teal" boxShadow="lg" pb="4px" display={display}>
-      Ingresar
+      <Link to="/login">Ingresar</Link>
     </Button>
   );
 };

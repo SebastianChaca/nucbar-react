@@ -24,11 +24,12 @@ export const Login = () => {
   const {
     inputs: { email, password, name },
   } = formState;
-  console.log(email);
+
   const handlePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
   const { response, error, loading, fetchData } = useFetch();
+
   const dispatch = useDispatch();
 
   const handleFormMode = () => {
@@ -39,23 +40,23 @@ export const Login = () => {
     }
     setLoginMode(!loginMode);
   };
+
   const handleSubmit = async e => {
     e.preventDefault();
     if (loginMode) {
       fetchData('post', `${url}/auth/local`, {
         identifier: email.value,
         password: password.value,
+      }).then(r => {
+        dispatch(setCurrentUser(r.data));
       });
-      if (response) {
-        console.log('im in');
-        console.log(response);
-        dispatch(setCurrentUser(response.data));
-      }
     } else {
       fetchData('post', `${url}/auth/local/register`, {
         username: name.value,
         email: email.value,
         password: password.value,
+      }).then(r => {
+        dispatch(setCurrentUser(r.data));
       });
     }
   };
