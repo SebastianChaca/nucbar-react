@@ -1,6 +1,5 @@
-import { Text, Box } from '@chakra-ui/react';
+import { Box } from '@chakra-ui/react';
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 export const LinkText = ({ loginMode, handleMode }) => {
   return (

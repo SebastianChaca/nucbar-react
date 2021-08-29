@@ -8,34 +8,54 @@ import {
   VALIDATOR_MAXLENGTH,
   VALIDATOR_PASSWORD,
 } from '../../Utils/validator';
+import { url } from '../../Utils/apiUrl';
 import { LoginForm, RegisterForm } from '../../Utils/initialForms';
-import { Button } from '@chakra-ui/react';
+import { Box, Button } from '@chakra-ui/react';
 import FormContainer from './FormContainer';
 import { LinkText } from './LinkText';
+import useFetch from '../../Hooks/useFetch';
 export const Login = () => {
   const [loginMode, setLoginMode] = useState(true);
   const [showPassword, setShowPassword] = useState(false);
   const [formState, inputHandler, setFormData] = useForm(LoginForm, false);
+  const {
+    inputs: { email, password, name },
+  } = formState;
+  console.log(email);
   const handlePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
+  const { response, error, loading, fetchData } = useFetch();
   const handleFormMode = () => {
     if (loginMode) {
       setFormData(RegisterForm(formState.inputs), false);
     } else {
-      setFormData(
-        LoginForm,
-        formState.inputs.email?.isValid && formState.inputs.password?.isValid
-      );
+      setFormData(LoginForm, email?.isValid && password?.isValid);
     }
     setLoginMode(!loginMode);
   };
-  const handleSubmit = e => {
+  const handleSubmit = async e => {
     e.preventDefault();
-    console.log('sarasa');
+    if (loginMode) {
+      fetchData('post', `${url}/auth/local`, {
+        identifier: email.value,
+        password: password.value,
+      });
+    } else {
+      fetchData('post', `${url}/auth/local/register`, {
+        username: name.value,
+        email: email.value,
+        password: password.value,
+      });
+    }
   };
   return (
     <>
+      {error && (
+        <Box textAlign="center" mt="20px" mb="20px" color="red">
+          Se produjo un errro, intentalo de nuevo.
+        </Box>
+      )}
       <FormContainer>
         {!loginMode && (
           <InputCustom
@@ -51,7 +71,7 @@ export const Login = () => {
           id="email"
           label="E-mail"
           onInput={inputHandler}
-          validators={[VALIDATOR_EMAIL(formState.inputs.email.value)]}
+          validators={[VALIDATOR_EMAIL(email.value)]}
           showPassword={showPassword}
           handlePasswordVisibility={handlePasswordVisibility}
         />
@@ -70,7 +90,7 @@ export const Login = () => {
             id="confirmPassword"
             label="Confirma la password"
             onInput={inputHandler}
-            validators={[VALIDATOR_PASSWORD(formState.inputs.password.value)]}
+            validators={[VALIDATOR_PASSWORD(password.value)]}
             handlePasswordVisibility={handlePasswordVisibility}
             showPassword={showPassword}
           />
@@ -82,6 +102,7 @@ export const Login = () => {
           color="#ffff"
           disabled={!formState.isValid}
           onClick={handleSubmit}
+          isLoading={loading}
         >
           Iniciar sesión
         </Button>

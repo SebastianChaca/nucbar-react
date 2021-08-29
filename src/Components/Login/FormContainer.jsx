@@ -9,7 +9,7 @@ const ContainerForms = ({ children }) => {
       borderColor="gray.300"
       p="30px"
       borderRadius="10px"
-      mt="5%"
+      mt="20px"
       mb="30px"
       bg="nucba.form"
     >
