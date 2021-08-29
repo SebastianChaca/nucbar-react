@@ -44,20 +44,26 @@ export const Login = () => {
   const handleSubmit = async e => {
     e.preventDefault();
     if (loginMode) {
-      fetchData('post', `${url}/auth/local`, {
-        identifier: email.value,
-        password: password.value,
-      }).then(r => {
-        dispatch(setCurrentUser(r.data));
-      });
+      fetchData(
+        'post',
+        `${url}/auth/local`,
+        {
+          identifier: email.value,
+          password: password.value,
+        },
+        setCurrentUser
+      );
     } else {
-      fetchData('post', `${url}/auth/local/register`, {
-        username: name.value,
-        email: email.value,
-        password: password.value,
-      }).then(r => {
-        dispatch(setCurrentUser(r.data));
-      });
+      fetchData(
+        'post',
+        `${url}/auth/local/register`,
+        {
+          username: name.value,
+          email: email.value,
+          password: password.value,
+        },
+        setCurrentUser
+      );
     }
   };
   return (
