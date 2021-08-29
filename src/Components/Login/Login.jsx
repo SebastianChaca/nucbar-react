@@ -21,13 +21,19 @@ export const Login = () => {
   };
   const handleFormMode = () => {
     if (loginMode) {
-      setFormData(RegisterForm, false);
+      setFormData(RegisterForm(formState.inputs), false);
     } else {
-      setFormData(LoginForm, false);
+      setFormData(
+        LoginForm,
+        formState.inputs.email?.isValid && formState.inputs.password?.isValid
+      );
     }
     setLoginMode(!loginMode);
   };
-
+  const handleSubmit = e => {
+    e.preventDefault();
+    console.log('sarasa');
+  };
   return (
     <>
       <FormContainer>
@@ -75,6 +81,7 @@ export const Login = () => {
           isFullWidth
           color="#ffff"
           disabled={!formState.isValid}
+          onClick={handleSubmit}
         >
           Iniciar sesión
         </Button>
