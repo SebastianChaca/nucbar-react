@@ -13,6 +13,9 @@ export const theme = extendTheme({
       form: '#ffff',
       btn: '#4F7CAC',
       section: '#42c5f5',
+      second: '#E22BDF',
+      primary: '#8A2BE2',
+      hover: '#8658A5',
     },
   },
 });

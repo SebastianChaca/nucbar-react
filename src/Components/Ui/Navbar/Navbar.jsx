@@ -6,46 +6,46 @@ import { FaShoppingCart } from 'react-icons/fa';
 import { TextHover, LogBtn } from '../../Shared/SharedComponents';
 import Logo from '../../../Assets/505b8c8ade6d4e23a00131abe9b1537c.png';
 import Sidebar from '../Sidebar/Sidebar';
-
+import NavContainer from './NavContainer';
+import { containerResponsive } from '../../../Utils/responsives';
 const NavBar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const containerResponsive = {
-    base: 'none',
-    sm: 'none',
-    md: 'flex',
-    lg: 'flex',
-    xl: 'flex',
+
+  const HamburguerBtn = () => {
+    return (
+      <Button
+        display={{ sm: 'flex', md: 'none', lg: 'none', xl: 'none' }}
+        onClick={onOpen}
+        background="none"
+      >
+        <GiHamburgerMenu style={{ fontSize: 30 }} color="#ffff" />
+
+        <Sidebar isOpen={isOpen} onClose={onClose} />
+      </Button>
+    );
+  };
+  const RightBtns = () => {
+    return (
+      <Flex>
+        <TextHover
+          mt={{ sm: 0, md: '5px', lg: '5px' }}
+          mr="15px"
+          children={<FaShoppingCart color="#fff" />}
+        />
+        <LogBtn display={containerResponsive} />
+      </Flex>
+    );
   };
   return (
-    <div>
-      <Flex
-        as="nav"
-        p="20px"
-        display="flex"
-        borderBottom="1px"
-        borderColor="gray.300"
-        justifyContent="space-around"
-        alignItems="center"
-      >
-        <Button
-          display={{ sm: 'flex', md: 'none', lg: 'none', xl: 'none' }}
-          onClick={onOpen}
-          background="none"
-        >
-          <GiHamburgerMenu style={{ fontSize: 30 }} />
-
-          <Sidebar isOpen={isOpen} onClose={onClose} />
-        </Button>
-        <TextHover children={'Logo Home'} display={containerResponsive} />
-        <Flex>
-          <TextHover
-            mt={{ sm: 0, md: '5px', lg: '5px' }}
-            children={<FaShoppingCart />}
-          />
-          <LogBtn display={containerResponsive} />
-        </Flex>
-      </Flex>
-    </div>
+    <NavContainer>
+      <HamburguerBtn />
+      <TextHover
+        link="/"
+        children={'Logo Home'}
+        display={containerResponsive}
+      />
+      <RightBtns />
+    </NavContainer>
   );
 };
 

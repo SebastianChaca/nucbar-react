@@ -4,10 +4,7 @@ import { Card } from '../Card/Card';
 import { Btn } from './Btn';
 
 const Section = () => {
-  const [showBtn, setShowBtn] = useState(false);
-  const handleShowBtn = () => {
-    setShowBtn(!showBtn);
-  };
+  const [showBtn, setShowBtn] = useState(true);
 
   return (
     <>
@@ -18,12 +15,12 @@ const Section = () => {
         mx="20px"
         my="20px"
         flexDir="column"
-        onMouseEnter={() => {
-          setShowBtn(true);
-        }}
-        onMouseOut={() => {
-          setShowBtn(false);
-        }}
+        // onMouseEnter={() => {
+        //   setShowBtn(true);
+        // }}
+        // onMouseOut={() => {
+        //   setShowBtn(false);
+        // }}
       >
         <Heading mb="15px">Whisky</Heading>
 
@@ -44,9 +41,9 @@ const Section = () => {
           <Card />
           <Card />
         </Grid>
+        {showBtn && <Btn left />}
+        {showBtn && <Btn />}
       </Flex>
-      {showBtn && <Btn left />}
-      {showBtn && <Btn />}
     </>
   );
 };

@@ -101,13 +101,14 @@ const Login = () => {
           />
         )}
         <Button
-          bg="nucba.btn"
+          bg="nucba.primary"
           mt="25px"
           isFullWidth
           color="#ffff"
           disabled={!formState.isValid}
           onClick={handleSubmit}
           isLoading={loading}
+          _hover={{ bg: 'nucba.hover' }}
         >
           Iniciar sesión
         </Button>

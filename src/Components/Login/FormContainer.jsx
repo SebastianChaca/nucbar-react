@@ -1,20 +1,21 @@
 import React from 'react';
-import { Box } from '@chakra-ui/react';
+import { Box, Flex } from '@chakra-ui/react';
 const ContainerForms = ({ children }) => {
   return (
-    <Box
+    <Flex
       w={{ base: '300px', sm: '300px', md: '400px' }}
       margin="auto"
       border="1px"
       borderColor="gray.300"
       p="30px"
       borderRadius="10px"
-      mt="20px"
+      mt="65px"
       mb="30px"
       bg="nucba.form"
+      flexDir="column"
     >
       {children}
-    </Box>
+    </Flex>
   );
 };
 

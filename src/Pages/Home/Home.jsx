@@ -11,12 +11,13 @@ export const Home = () => {
     fetchData('get', `${url}/products`, fetchProducts);
   }, [fetchData]);
 
-  if (loading) {
-    return <h1>LOADING</h1>;
-  }
+  // if (loading) {
+  //   return <h1>LOADING</h1>;
+  // }
 
   return (
     <>
+      <Section />
       <Section />
     </>
   );

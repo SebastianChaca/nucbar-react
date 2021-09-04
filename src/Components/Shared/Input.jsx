@@ -77,7 +77,6 @@ export const InputCustom = props => {
             onBlur={toucheHandler}
             value={inputState.value}
             isInvalid={!isValid && inputState.isTouche}
-            variant="outline"
           />
           {(props.id === 'password' || props.id === 'confirmPassword') && (
             <InputRightElement width="3rem">

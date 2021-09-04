@@ -7,7 +7,7 @@ export const TextHover = ({ children, link, mt, display }) => {
     <Link to={link}>
       <Text
         mt={mt}
-        mx="10px"
+        mx="20px"
         display={display}
         fontSize="2xl"
         _hover={{
@@ -44,9 +44,18 @@ export const TextHoverDrawer = ({ children, link, onClose }) => {
 };
 export const LogBtn = ({ display }) => {
   return (
-    <Button colorScheme="teal" boxShadow="lg" pb="4px" display={display}>
-      <Link to="/login">Ingresar</Link>
-    </Button>
+    <Link to="/login">
+      <Button
+        color="nucba.form"
+        bg="nucba.second"
+        boxShadow="lg"
+        pb="4px"
+        display={display}
+        _hover={{ bg: 'nucba.hover' }}
+      >
+        Ingresar
+      </Button>
+    </Link>
   );
 };
 export const FormBtn = ({ children, isValid, isDirty, isLoading }) => {

@@ -9,13 +9,13 @@ export const Card = () => {
         <Box
           w="225px"
           bg="#ffffff"
-          borderRadius="5px"
+          borderRadius="2px"
           py="10px"
           boxShadow="lg"
           _hover={{
             boxShadow: '2xl',
           }}
-          mr="30px"
+          mr={{ md: '30px', lg: '30px' }}
           mb="20px"
         >
           <Image
@@ -30,12 +30,14 @@ export const Card = () => {
             <Text textAlign="center" fontSize="xl">
               Título
             </Text>
-            <Text fontSize="lg" fontWeight="500">
-              $5000
-            </Text>
-            <Text fontSize="sm" color="gray.500">
-              Descripcion sarasasasasas
-            </Text>
+            <Box ml="10px" mt="5px">
+              <Text fontSize="lg" fontWeight="500">
+                $5000
+              </Text>
+              <Text fontSize="sm" color="gray.500">
+                Descripcion sarasasasasas
+              </Text>
+            </Box>
           </Box>
         </Box>
       </Link>
