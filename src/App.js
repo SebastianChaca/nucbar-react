@@ -14,8 +14,9 @@ function App() {
       <PersistGate persistor={persistor}>
         <ChakraProvider theme={theme}>
           <Router>
-            <Layout></Layout>
-            <Public />
+            <Layout>
+              <Public />
+            </Layout>
           </Router>
         </ChakraProvider>
       </PersistGate>
