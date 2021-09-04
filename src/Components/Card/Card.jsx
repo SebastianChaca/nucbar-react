@@ -15,7 +15,8 @@ export const Card = () => {
           _hover={{
             boxShadow: '2xl',
           }}
-          m="10px"
+          mr="30px"
+          mb="20px"
         >
           <Image
             m="auto"

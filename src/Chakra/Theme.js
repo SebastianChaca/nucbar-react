@@ -12,6 +12,7 @@ export const theme = extendTheme({
       100: '#f7fafc',
       form: '#ffff',
       btn: '#4F7CAC',
+      section: '#42c5f5',
     },
   },
 });
