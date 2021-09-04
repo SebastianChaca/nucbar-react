@@ -17,7 +17,7 @@ import useFetch from '../../Hooks/useFetch';
 
 import { setCurrentUser } from '../../Redux/Actions/userActions';
 
-export const Login = () => {
+const Login = () => {
   const [loginMode, setLoginMode] = useState(true);
   const [showPassword, setShowPassword] = useState(false);
   const [formState, inputHandler, setFormData] = useForm(LoginForm, false);
@@ -42,26 +42,16 @@ export const Login = () => {
   const handleSubmit = async e => {
     e.preventDefault();
     if (loginMode) {
-      fetchData(
-        'post',
-        `${url}/auth/local`,
-        {
-          identifier: email.value,
-          password: password.value,
-        },
-        setCurrentUser
-      );
+      fetchData('post', `${url}/auth/local`, setCurrentUser, {
+        identifier: email.value,
+        password: password.value,
+      });
     } else {
-      fetchData(
-        'post',
-        `${url}/auth/local/register`,
-        {
-          username: name.value,
-          email: email.value,
-          password: password.value,
-        },
-        setCurrentUser
-      );
+      fetchData('post', `${url}/auth/local/register`, setCurrentUser, {
+        username: name.value,
+        email: email.value,
+        password: password.value,
+      });
     }
   };
   return (
