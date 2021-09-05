@@ -13,7 +13,7 @@ import { FaShoppingCart } from 'react-icons/fa';
 import { FiShoppingCart } from 'react-icons/fi';
 import { TextHover, LogBtn } from '../../Shared/SharedComponents';
 import Logo from '../../../Assets/logo1.png';
-import Portada from '../../../Assets/portada.jpg';
+
 import Sidebar from '../Sidebar/Sidebar';
 import NavContainer from './NavContainer';
 import { containerResponsive } from '../../../Utils/responsives';
@@ -60,7 +60,6 @@ const NavBar = () => {
         </Box>
         <RightBtns />
       </NavContainer>
-      <Image src={Portada} w="100%" h="360px" objectFit="cover" />
     </>
   );
 };
