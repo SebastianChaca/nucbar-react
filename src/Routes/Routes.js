@@ -5,16 +5,19 @@ import NotFound from '../Pages/NotFound/NotFound.jsx';
 export const publicRoutes = [
   {
     id: uuidv4(),
+    exact: true,
     path: '/',
     component: <Home />,
   },
   {
     id: uuidv4(),
+    exact: false,
     path: '/login',
     component: <Login />,
   },
   {
     id: uuidv4(),
+    exact: false,
     path: '*',
     component: <NotFound />,
   },

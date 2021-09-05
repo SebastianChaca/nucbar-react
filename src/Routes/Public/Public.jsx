@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
-
+import { Transition } from '../Transitions/Transition';
 import { useSelector } from 'react-redux';
 import { publicRoutes } from '../Routes';
 export const Public = () => {
@@ -22,5 +22,6 @@ export const Public = () => {
       }
     });
   };
+
   return <Switch>{mapRoutes(publicRoutes)}</Switch>;
 };

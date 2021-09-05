@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import { url } from '../../Utils/apiUrl';
 import useFetch from '../../Hooks/useFetch';
-import { useSelector } from 'react-redux';
 import { fetchProducts } from '../../Redux/Actions/prodcutsActions';
 import Section from '../../Components/Section/Section';
+import Gallery from '../../Components/Ui/Gallery/Gallery';
 export const Home = () => {
   const { loading, response, error, fetchData } = useFetch();
 
@@ -11,12 +11,9 @@ export const Home = () => {
     fetchData('get', `${url}/products`, fetchProducts);
   }, [fetchData]);
 
-  // if (loading) {
-  //   return <h1>LOADING</h1>;
-  // }
-
   return (
     <>
+      <Gallery />
       <Section loading={loading} />
       <Section loading={loading} />
     </>

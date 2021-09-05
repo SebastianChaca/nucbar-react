@@ -8,7 +8,7 @@ export const Card = ({ index, showBtn, setShowBtn, lastElement, loading }) => {
       <Skeleton
         startColor="pink.500"
         endColor="orange.500"
-        w="220px"
+        w="230px"
         h="335px"
         bg="#ffffff"
         borderRadius="2px"
