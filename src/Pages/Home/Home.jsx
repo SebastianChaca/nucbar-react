@@ -1,9 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import { url } from '../../Utils/apiUrl';
 import useFetch from '../../Hooks/useFetch';
 import { fetchProducts } from '../../Redux/Actions/prodcutsActions';
 import Section from '../../Components/Section/Section';
-import Gallery from '../../Components/Ui/Gallery/Gallery';
+
+import { MemoGallery } from '../../Components/Ui/Gallery/Gallery';
 export const Home = () => {
   const { loading, response, error, fetchData } = useFetch();
 
@@ -13,7 +14,7 @@ export const Home = () => {
 
   return (
     <>
-      <Gallery />
+      <MemoGallery />
       <Section loading={loading} />
       <Section loading={loading} />
     </>

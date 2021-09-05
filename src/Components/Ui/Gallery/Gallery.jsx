@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { Image, Box, Flex } from '@chakra-ui/react';
 import './Slide.css';
 import { ArrowBtn } from './ArrowBtn';
@@ -47,7 +47,7 @@ const Gallery = () => {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.5 }}
+        exit={{ opacity: 0 }}
       >
         {children}
       </motion.div>
@@ -90,4 +90,4 @@ const Gallery = () => {
   );
 };
 
-export default Gallery;
+export const MemoGallery = React.memo(Gallery);

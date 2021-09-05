@@ -17,6 +17,7 @@ import Logo from '../../../Assets/logo1.png';
 import Sidebar from '../Sidebar/Sidebar';
 import NavContainer from './NavContainer';
 import { containerResponsive } from '../../../Utils/responsives';
+import { Link } from 'react-router-dom';
 const NavBar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
@@ -56,7 +57,9 @@ const NavBar = () => {
       <NavContainer>
         <HamburguerBtn />
         <Box display={containerResponsive}>
-          <Image src={Logo} objectFit="contain" boxSize="80px" />
+          <Link to="/">
+            <Image src={Logo} objectFit="contain" boxSize="80px" />
+          </Link>
         </Box>
         <RightBtns />
       </NavContainer>
