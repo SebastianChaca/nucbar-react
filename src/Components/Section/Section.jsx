@@ -1,17 +1,26 @@
 import { useState } from 'react';
-import { Heading, Flex, Grid, Text, Box } from '@chakra-ui/layout';
+import { Heading, Flex, Grid, Text, Box, Skeleton } from '@chakra-ui/react';
 import { Card } from '../Card/Card';
 import { Link } from 'react-router-dom';
 
-const Section = () => {
+const Section = ({ loading }) => {
   const [showBtn, setShowBtn] = useState(false);
   const sarasa = [1, 2, 3, 4, 5];
   const lastSarasa = sarasa[sarasa.length - 1] - 1;
 
   return (
     <Flex alignContent="center" mx="20px" my="20px" flexDir="column">
-      <Heading mb="15px">Whisky</Heading>
-
+      {!loading ? (
+        <Heading mb="15px">Whisky</Heading>
+      ) : (
+        <Skeleton
+          h="40px"
+          w="130px"
+          mb="15px"
+          startColor="pink.500"
+          endColor="orange.500"
+        />
+      )}
       <Grid
         templateColumns={{
           base: 'repeat(1, 250px)',
@@ -29,13 +38,16 @@ const Section = () => {
               showBtn={showBtn}
               setShowBtn={setShowBtn}
               lastElement={lastSarasa}
+              loading={loading}
             />
           );
         })}
       </Grid>
-      <Box m="auto">
-        <Link>Ver todos</Link>
-      </Box>
+      {!loading && (
+        <Box m="auto">
+          <Link>Ver todos</Link>
+        </Box>
+      )}
     </Flex>
   );
 };

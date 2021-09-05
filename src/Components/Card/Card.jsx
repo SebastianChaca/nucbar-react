@@ -1,8 +1,22 @@
-import { Box, Text, Image, Flex } from '@chakra-ui/react';
+import { Box, Text, Image, Flex, Skeleton } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
 import Img from '../../Assets/chupi2.png';
 import { Btn } from '../Section/Btn';
-export const Card = ({ index, showBtn, setShowBtn, lastElement }) => {
+export const Card = ({ index, showBtn, setShowBtn, lastElement, loading }) => {
+  if (loading) {
+    return (
+      <Skeleton
+        startColor="pink.500"
+        endColor="orange.500"
+        w="220px"
+        h="335px"
+        bg="#ffffff"
+        borderRadius="2px"
+        py="10px"
+        mr={{ md: '20px', lg: '20px' }}
+      />
+    );
+  }
   return (
     <Link>
       <Flex justifyContent="center" mb="20px" position="relative">

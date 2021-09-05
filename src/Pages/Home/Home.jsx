@@ -17,8 +17,8 @@ export const Home = () => {
 
   return (
     <>
-      <Section />
-      <Section />
+      <Section loading={loading} />
+      <Section loading={loading} />
     </>
   );
 };

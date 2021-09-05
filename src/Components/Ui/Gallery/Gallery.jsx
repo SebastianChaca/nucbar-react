@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import { Image, Box, Flex } from '@chakra-ui/react';
-
+import './Slide.css';
 import { ArrowBtn } from './ArrowBtn';
+import { motion, AnimatePresence } from 'framer-motion';
 const Gallery = () => {
   const [current, setCurrent] = useState(0);
+
   const array = [
     {
       id: 1,
@@ -40,19 +42,41 @@ const Gallery = () => {
       setCurrent(current - 1);
     }
   };
-  console.log(array.length);
+  const Slideshow = ({ children }) => (
+    <AnimatePresence>
+      <motion.div
+        initial={{ opacity: 0, y: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.5 }}
+      >
+        {children}
+      </motion.div>
+    </AnimatePresence>
+  );
+
   return (
     <Box position="relative" w="100%">
-      <Image src={array[current].src} w="100%" h="360px" objectFit="cover" />
+      <Slideshow>
+        <Box bg="nucba.primary">
+          <Image
+            src={array[current].src}
+            w="100%"
+            h="360px"
+            objectFit="cover"
+            className="active"
+          />
+        </Box>
+      </Slideshow>
       <Flex position="absolute" left="45%" top="320px">
         {array.map((c, i) => {
           return (
-            <Box boxShadow="2xl">
+            <Box boxShadow="2xl" key={c.id}>
               <Box
                 h="15px"
                 w="15px"
                 borderRadius="100%"
-                bg={i === current ? 'purple.600' : 'purple.300'}
+                bg={i === current ? 'purple.300' : 'purple.600'}
                 mx="10px"
                 opacity="0.8"
                 boxShadow="inner"
