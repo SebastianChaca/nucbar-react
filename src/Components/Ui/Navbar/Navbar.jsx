@@ -1,10 +1,19 @@
 import React from 'react';
 import { ColorModeSwitcher } from '../../../ColorModeSwitcher';
-import { Flex, useDisclosure, Button } from '@chakra-ui/react';
+import {
+  Flex,
+  useDisclosure,
+  Button,
+  Box,
+  Text,
+  Image,
+} from '@chakra-ui/react';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { FaShoppingCart } from 'react-icons/fa';
+import { FiShoppingCart } from 'react-icons/fi';
 import { TextHover, LogBtn } from '../../Shared/SharedComponents';
-import Logo from '../../../Assets/505b8c8ade6d4e23a00131abe9b1537c.png';
+import Logo from '../../../Assets/logo1.png';
+import Portada from '../../../Assets/portada.jpg';
 import Sidebar from '../Sidebar/Sidebar';
 import NavContainer from './NavContainer';
 import { containerResponsive } from '../../../Utils/responsives';
@@ -27,25 +36,32 @@ const NavBar = () => {
   const RightBtns = () => {
     return (
       <Flex>
-        <TextHover
-          mt={{ sm: 0, md: '5px', lg: '5px' }}
-          mr="15px"
-          children={<FaShoppingCart color="#fff" />}
-        />
         <LogBtn display={containerResponsive} />
+        <Flex mr="10px" position="relative">
+          <FiShoppingCart color="#fff" fontSize="20px" />
+          <Box
+            position="absolute"
+            color="nucba.form"
+            bottom={{ base: '15px', sm: '15px', md: '22px', lg: '22px' }}
+            left="17px"
+          >
+            <Text fontSize="11px">0</Text>
+          </Box>
+        </Flex>
       </Flex>
     );
   };
   return (
-    <NavContainer>
-      <HamburguerBtn />
-      <TextHover
-        link="/"
-        children={'Logo Home'}
-        display={containerResponsive}
-      />
-      <RightBtns />
-    </NavContainer>
+    <>
+      <NavContainer>
+        <HamburguerBtn />
+        <Box display={containerResponsive}>
+          <Image src={Logo} objectFit="contain" boxSize="80px" />
+        </Box>
+        <RightBtns />
+      </NavContainer>
+      <Image src={Portada} w="100%" h="360px" objectFit="cover" />
+    </>
   );
 };
 

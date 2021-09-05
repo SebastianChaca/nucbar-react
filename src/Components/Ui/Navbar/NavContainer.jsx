@@ -4,13 +4,12 @@ const NavContainer = ({ children }) => {
   return (
     <Flex
       as="nav"
-      p="20px"
+      px="20px"
       display="flex"
-      borderBottom="1px"
-      borderColor="gray.300"
       justifyContent="space-between"
       alignItems="center"
       bg="nucba.primary"
+      h={{ base: '60px', sm: '60px', md: '100%', lg: '100%' }}
     >
       {children}
     </Flex>

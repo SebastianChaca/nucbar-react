@@ -13,9 +13,10 @@ export const theme = extendTheme({
       form: '#ffff',
       btn: '#4F7CAC',
       section: '#42c5f5',
-      second: '#E22BDF',
-      primary: '#8A2BE2',
-      hover: '#8658A5',
+      second: '#004fff',
+      // primary: '#ff1f8f',
+      primary: '#ed1582',
+      hover: '#050505',
     },
   },
 });
