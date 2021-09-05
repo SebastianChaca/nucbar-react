@@ -27,9 +27,17 @@ export const Card = ({ index, showBtn, setShowBtn, lastElement }) => {
               Título
             </Text>
             <Box ml="15px">
-              <Text fontSize="15px" fontWeight="500">
-                $5000
-              </Text>
+              <Flex>
+                <Text fontSize="15px" fontWeight="500" mr="5px">
+                  $5000
+                </Text>
+                {/* <Text fontSize="15px" as="s" color="gray.400">
+                  $5000
+                </Text> */}
+                <Text fontSize="13px" color="pink.500" fontWeight="500">
+                  10% Off
+                </Text>
+              </Flex>
               <Text fontSize="sm" color="gray.500">
                 Descripcion sarasasasasas
               </Text>
