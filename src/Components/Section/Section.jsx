@@ -10,17 +10,17 @@ const Section = ({ loading }) => {
 
   return (
     <Flex alignContent="center" mx="20px" my="20px" flexDir="column">
-      {!loading ? (
+      <Skeleton
+        h="40px"
+        w="130px"
+        mb="15px"
+        startColor="pink.500"
+        endColor="orange.500"
+        isLoaded={!loading}
+      >
         <Heading mb="15px">Whisky</Heading>
-      ) : (
-        <Skeleton
-          h="40px"
-          w="130px"
-          mb="15px"
-          startColor="pink.500"
-          endColor="orange.500"
-        />
-      )}
+      </Skeleton>
+
       <Grid
         templateColumns={{
           base: 'repeat(1, 250px)',

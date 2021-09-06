@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Image, Box, Flex } from '@chakra-ui/react';
-import './Slide.css';
+
 import { ArrowBtn } from './ArrowBtn';
 import { motion, AnimatePresence } from 'framer-motion';
 const Gallery = () => {

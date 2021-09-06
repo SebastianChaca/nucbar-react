@@ -27,6 +27,7 @@ export const Card = ({ index, showBtn, setShowBtn, lastElement, loading }) => {
           borderRadius="2px"
           py="10px"
           mr={{ md: '20px', lg: '20px' }}
+          _hover={{ boxShadow: '5px 5px 17px 1px rgba(181,78,159,0.36)' }}
         >
           <Image
             m="auto"
