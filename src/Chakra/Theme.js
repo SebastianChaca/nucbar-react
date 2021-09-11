@@ -14,9 +14,9 @@ export const theme = extendTheme({
       btn: '#4F7CAC',
       section: '#42c5f5',
       second: '#004fff',
-      // primary: '#ff1f8f',
       primary: '#ed1582',
       hover: '#050505',
+      hoverElement: '#B84E9F',
     },
   },
 });
