@@ -16,7 +16,7 @@ export const Card = ({
         startColor="pink.500"
         endColor="orange.500"
         w="230px"
-        h="335px"
+        h="330px"
         bg="#ffffff"
         borderRadius="2px"
         py="10px"
@@ -56,7 +56,7 @@ export const Card = ({
             <Text textAlign="center" fontSize="18px">
               {product && product.title}
             </Text>
-            <Box ml="15px">
+            <Box ml="15px" mt="7px">
               <Flex alignItems="baseline">
                 <Text fontSize="16px" fontWeight="500">
                   $

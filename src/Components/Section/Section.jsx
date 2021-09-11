@@ -42,7 +42,7 @@ const Section = ({ loading, section, products }) => {
         justifyContent="center"
       >
         {products
-          ? products.map((product, index) => {
+          ? products.slice(0, 5).map((product, index) => {
               return (
                 <Card
                   index={index}
