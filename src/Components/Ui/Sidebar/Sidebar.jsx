@@ -6,7 +6,6 @@ import {
   DrawerContent,
   DrawerCloseButton,
   Image,
-  Text,
   Flex,
   Grid,
 } from '@chakra-ui/react';

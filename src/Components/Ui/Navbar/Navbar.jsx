@@ -1,5 +1,5 @@
 import React from 'react';
-import { ColorModeSwitcher } from '../../../ColorModeSwitcher';
+
 import {
   Flex,
   useDisclosure,
@@ -9,9 +9,9 @@ import {
   Image,
 } from '@chakra-ui/react';
 import { GiHamburgerMenu } from 'react-icons/gi';
-import { FaShoppingCart } from 'react-icons/fa';
+
 import { FiShoppingCart } from 'react-icons/fi';
-import { TextHover, LogBtn } from '../../Shared/SharedComponents';
+import { LogBtn } from '../../Shared/SharedComponents';
 import Logo from '../../../Assets/logo1.png';
 
 import Sidebar from '../Sidebar/Sidebar';

@@ -1,13 +1,5 @@
 import { useState } from 'react';
-import {
-  Heading,
-  Flex,
-  Grid,
-  Text,
-  Box,
-  Skeleton,
-  Button,
-} from '@chakra-ui/react';
+import { Heading, Flex, Grid, Box, Skeleton, Button } from '@chakra-ui/react';
 import { Card } from '../Card/Card';
 import { Link } from 'react-router-dom';
 
@@ -66,6 +58,7 @@ const Section = ({ loading, section, products }) => {
               _focus={{ outline: 'none' }}
               _hover={{ bg: 'nucba.hover' }}
               mt="20px"
+              boxShadow="lg"
             >
               Ver Todos
             </Button>

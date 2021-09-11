@@ -1,7 +1,6 @@
 import { Box, Text, Image, Flex, Skeleton } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
-import Img from '../../Assets/chupi2.png';
-import { Btn } from '../Section/Btn';
+
 export const Card = ({
   index,
   showBtn,

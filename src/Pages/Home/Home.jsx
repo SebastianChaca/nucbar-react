@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo } from 'react';
+import React, { useEffect } from 'react';
 import { url } from '../../Utils/apiUrl';
 import useFetch from '../../Hooks/useFetch';
 import { fetchProducts } from '../../Redux/Actions/prodcutsActions';
@@ -8,7 +8,7 @@ import { useSelector } from 'react-redux';
 import { MemoGallery } from '../../Components/Ui/Gallery/Gallery';
 import { filterProductsByCategory } from '../../Utils/filterProductsByCaterogy';
 export const Home = () => {
-  const { loading, response, error, fetchData } = useFetch();
+  const { loading, fetchData } = useFetch();
   const { products } = useSelector(state => state.products);
   const { sections } = useSelector(state => state.sections);
   useEffect(() => {
