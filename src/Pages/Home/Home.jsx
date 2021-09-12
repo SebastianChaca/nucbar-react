@@ -7,6 +7,7 @@ import Section from '../../Components/Section/Section';
 import { useSelector } from 'react-redux';
 import { MemoGallery } from '../../Components/Ui/Gallery/Gallery';
 import { filterProductsByCategory } from '../../Utils/filterProductsByCaterogy';
+import ListCard from '../../Components/ListCard/ListCard';
 export const Home = () => {
   const { loading, fetchData } = useFetch();
   const { products } = useSelector(state => state.products);
@@ -15,11 +16,11 @@ export const Home = () => {
     fetchData('get', `${url}/products`, fetchProducts);
     fetchData('get', `${url}/sections`, getSections);
   }, [fetchData]);
-  console.log(products);
+
   return (
     <>
       <MemoGallery />
-      {sections && products ? (
+      {/* {sections && products ? (
         sections.map(section => (
           <Section
             section={section}
@@ -28,7 +29,11 @@ export const Home = () => {
         ))
       ) : (
         <Section loading={loading} />
-      )}
+      )} */}
+      {products &&
+        products.map((product, index) => {
+          return <ListCard product={product} index={index} />;
+        })}
     </>
   );
 };
