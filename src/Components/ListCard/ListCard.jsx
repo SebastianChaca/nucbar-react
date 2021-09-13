@@ -1,10 +1,29 @@
+import { useState } from 'react';
 import { Image } from '@chakra-ui/image';
-import { Box, Flex, Heading, Text } from '@chakra-ui/layout';
+import { Box, Flex, Heading, Text, Button } from '@chakra-ui/react';
 import { FaStar, FaRegStar } from 'react-icons/fa';
+import { AiOutlineHeart } from 'react-icons/ai';
 
 const ListCard = ({ product, index }) => {
+  const [show, setShow] = useState(false);
+  const setShowEnter = () => {
+    setShow(true);
+  };
+  const setShowLeave = () => {
+    setShow(false);
+  };
+
   return (
-    <Flex justifyContent="right" mr="60px" mb="2px" mt={index === 0 && '50'}>
+    <Flex
+      justifyContent="right"
+      mr="60px"
+      mb="2px"
+      mt={index === 0 && '50'}
+      position="relative"
+      zIndex={100}
+      onMouseEnter={() => setShowEnter()}
+      onMouseLeave={() => setShowLeave()}
+    >
       <Box
         bg="nucba.form"
         w="60%"
@@ -78,6 +97,17 @@ const ListCard = ({ product, index }) => {
           </Box>
         </Flex>
       </Box>
+      {show && (
+        <Button
+          position="absolute"
+          m="10px"
+          color="nucba.primary"
+          _hover={{ color: 'nucba.hoverElement' }}
+          bg="transparent"
+        >
+          <AiOutlineHeart />
+        </Button>
+      )}
     </Flex>
   );
 };
