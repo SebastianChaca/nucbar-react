@@ -3,6 +3,7 @@ import { Image } from '@chakra-ui/image';
 import { Box, Flex, Heading, Text, Button } from '@chakra-ui/react';
 import { FaStar, FaRegStar } from 'react-icons/fa';
 import { AiOutlineHeart } from 'react-icons/ai';
+import { OrderByDropDown } from '../OrderByDropDown/OrderByDropDown';
 
 const ListCard = ({ product, index }) => {
   const [show, setShow] = useState(false);
@@ -18,7 +19,7 @@ const ListCard = ({ product, index }) => {
       justifyContent="right"
       mr="60px"
       mb="2px"
-      mt={index === 0 && '50'}
+      mt={index === 0 && '20px'}
       position="relative"
       zIndex={100}
       onMouseEnter={() => setShowEnter()}

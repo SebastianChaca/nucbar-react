@@ -8,6 +8,7 @@ import { useSelector } from 'react-redux';
 import { MemoGallery } from '../../Components/Ui/Gallery/Gallery';
 import { filterProductsByCategory } from '../../Utils/filterProductsByCaterogy';
 import ListCard from '../../Components/ListCard/ListCard';
+import OrderByDropDown from '../../Components/OrderByDropDown/OrderByDropDown';
 export const Home = () => {
   const { loading, fetchData } = useFetch();
   const { products } = useSelector(state => state.products);
@@ -30,6 +31,7 @@ export const Home = () => {
       ) : (
         <Section loading={loading} />
       )} */}
+      <OrderByDropDown />
       {products &&
         products.map((product, index) => {
           return <ListCard product={product} index={index} />;

@@ -15,6 +15,7 @@ export const theme = extendTheme({
       section: '#42c5f5',
       second: '#004fff',
       primary: '#ed1582',
+      third: '#B84E9F',
       hover: '#050505',
       hoverElement: '#B84E9F',
     },
