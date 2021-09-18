@@ -18,7 +18,7 @@ import { ChevronDownIcon } from '@chakra-ui/icons';
 import { BiChevronDown } from 'react-icons/bi';
 const DropDown = () => {
   return (
-    <Flex justifyContent="center" position="relative" zIndex={1000}>
+    <Flex position="relative" zIndex={1000}>
       <Menu>
         <MenuButton
           as={Button}
@@ -45,7 +45,7 @@ const DropDown = () => {
 };
 const OrderByDropDown = () => {
   return (
-    <Flex justifyContent="right" alignItems="center" mr="45px" mt="20px">
+    <Flex alignItems="center" mr="45px">
       <Text fontWeight="500">Ordernar por</Text>
       <DropDown />
     </Flex>

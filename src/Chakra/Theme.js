@@ -16,8 +16,10 @@ export const theme = extendTheme({
       second: '#004fff',
       primary: '#ed1582',
       third: '#B84E9F',
+      fourth: '#deb0eb',
       hover: '#050505',
       hoverElement: '#B84E9F',
+      breadCrumbs: '#666666',
     },
   },
 });

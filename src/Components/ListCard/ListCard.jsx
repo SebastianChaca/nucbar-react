@@ -15,22 +15,24 @@ const ListCard = ({ product, index }) => {
   };
 
   return (
-    <Flex
-      justifyContent="right"
-      mr="60px"
-      mb="2px"
-      mt={index === 0 && '20px'}
-      position="relative"
-      zIndex={100}
-      onMouseEnter={() => setShowEnter()}
-      onMouseLeave={() => setShowLeave()}
-    >
+    <Box mb="2px" justifyContent="right" mr="60px">
+      {/* <Flex
+        justifyContent="right"
+        mr="60px"
+        mb="2px"
+        mt={index === 0 && '20px'}
+        position="relative"
+        zIndex={100}
+      > */}
       <Box
+        onMouseEnter={() => setShowEnter()}
+        onMouseLeave={() => setShowLeave()}
         bg="nucba.form"
-        w="60%"
+        w="850px"
         p="20px"
         borderRadius={index === 0 && '5px 5px 0px 0px'}
         lineHeight="19px"
+        position="relative"
       >
         <Flex>
           <Image
@@ -105,11 +107,12 @@ const ListCard = ({ product, index }) => {
           color="nucba.primary"
           _hover={{ color: 'nucba.hoverElement' }}
           bg="transparent"
+          left="51%"
         >
           <AiOutlineHeart />
         </Button>
       )}
-    </Flex>
+    </Box>
   );
 };
 

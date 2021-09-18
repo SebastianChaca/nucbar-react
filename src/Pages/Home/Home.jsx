@@ -21,7 +21,7 @@ export const Home = () => {
   return (
     <>
       <MemoGallery />
-      {/* {sections && products ? (
+      {sections && products ? (
         sections.map(section => (
           <Section
             section={section}
@@ -30,12 +30,7 @@ export const Home = () => {
         ))
       ) : (
         <Section loading={loading} />
-      )} */}
-      <OrderByDropDown />
-      {products &&
-        products.map((product, index) => {
-          return <ListCard product={product} index={index} />;
-        })}
+      )}
     </>
   );
 };

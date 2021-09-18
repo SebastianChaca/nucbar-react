@@ -2,6 +2,7 @@ import { v4 as uuidv4 } from 'uuid';
 import Home from '../Pages/Home/Home.jsx';
 import Login from '../Components/Login/Login';
 import NotFound from '../Pages/NotFound/NotFound.jsx';
+import Products from '../Pages/Products/Products.jsx';
 export const publicRoutes = [
   {
     id: uuidv4(),
@@ -14,6 +15,12 @@ export const publicRoutes = [
     exact: false,
     path: '/login',
     component: <Login />,
+  },
+  {
+    id: uuidv4(),
+    exact: false,
+    path: '/products/:category',
+    component: <Products />,
   },
   {
     id: uuidv4(),
