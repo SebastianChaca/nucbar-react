@@ -1,14 +1,12 @@
-import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import useArray from '../../Hooks/useArray';
+
 import ListCard from '../../Components/ListCard/ListCard';
 import Banner from '../../Components/Banner/Banner';
 import OrderByDropDown from '../../Components/OrderByDropDown/OrderByDropDown';
 import Breadcrumb from '../../Components/BreadCrumb/Breadcrumb';
-import { Flex, Box } from '@chakra-ui/react';
+import { Flex, Box, Text } from '@chakra-ui/react';
 import SwitcherCard from '../../Components/SwitcherCard/SwitcherCard';
-import { FaFileExcel } from 'react-icons/fa';
 
 const Products = () => {
   const { category } = useParams();
@@ -29,9 +27,40 @@ const Products = () => {
           <OrderByDropDown />
         </Flex>
         <Flex alignItems="flex-start" justifyContent="space-between">
-          <Box>
+          <Box ml="10px">
             <SwitcherCard text={'Envío gratis'} />
             <SwitcherCard text={'Desde 10% OFF'} discount />
+            <Box mt="25px">
+              <Text fontWeight="600" fontSize="18px">
+                Marcas
+              </Text>
+              <Flex mt="8px">
+                <Text
+                  fontSize="13px"
+                  fontWeight="400"
+                  color="nucba.grisUno"
+                  mr="4px"
+                >
+                  Marca 1
+                </Text>
+                <Text fontSize="13px" color="nucba.grisDos">
+                  (2)
+                </Text>
+              </Flex>
+              <Flex mt="8px">
+                <Text
+                  fontSize="13px"
+                  fontWeight="400"
+                  color="nucba.grisUno"
+                  mr="4px"
+                >
+                  Marca 2
+                </Text>
+                <Text fontSize="13px" color="nucba.grisDos">
+                  (4)
+                </Text>
+              </Flex>
+            </Box>
           </Box>
           <Box>
             {filteredProducts.map((product, index) => {

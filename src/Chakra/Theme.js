@@ -20,6 +20,8 @@ export const theme = extendTheme({
       hover: '#050505',
       hoverElement: '#B84E9F',
       breadCrumbs: '#666666',
+      grisUno: '#666666',
+      grisDos: '#999999',
     },
   },
 });

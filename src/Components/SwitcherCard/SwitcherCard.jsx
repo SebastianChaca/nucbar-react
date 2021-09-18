@@ -1,4 +1,4 @@
-import { Box, Flex, Text } from '@chakra-ui/layout';
+import { Flex, Text } from '@chakra-ui/layout';
 import { Switch } from '@chakra-ui/switch';
 
 const SwitcherCard = ({ text, discount }) => {
@@ -12,7 +12,6 @@ const SwitcherCard = ({ text, discount }) => {
       justifyContent="space-between"
       alignItems="center"
       mb="10px"
-      ml="10px"
     >
       <Text
         mr="10px"

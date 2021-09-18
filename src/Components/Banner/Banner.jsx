@@ -1,5 +1,5 @@
 import { Image } from '@chakra-ui/image';
-
+import BannerImg from '../../Assets/bar.JPG';
 const Banner = ({ category }) => {
   const mocksImages = [
     {
@@ -14,7 +14,7 @@ const Banner = ({ category }) => {
   return (
     <div>
       <Image
-        src={src ? src.src : defaultImage}
+        src={BannerImg}
         boxSize="100px"
         w="100%"
         h="150px"

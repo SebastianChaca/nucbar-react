@@ -1,9 +1,8 @@
 import { useState } from 'react';
 import { Image } from '@chakra-ui/image';
-import { Box, Flex, Heading, Text, Button } from '@chakra-ui/react';
+import { Box, Flex, Text, Button } from '@chakra-ui/react';
 import { FaStar, FaRegStar } from 'react-icons/fa';
 import { AiOutlineHeart } from 'react-icons/ai';
-import { OrderByDropDown } from '../OrderByDropDown/OrderByDropDown';
 
 const ListCard = ({ product, index }) => {
   const [show, setShow] = useState(false);
@@ -15,7 +14,14 @@ const ListCard = ({ product, index }) => {
   };
 
   return (
-    <Box mb="2px" justifyContent="right" mr="60px">
+    <Box
+      mb="2px"
+      justifyContent="right"
+      mr="60px"
+      position="relative"
+      onMouseEnter={() => setShowEnter()}
+      onMouseLeave={() => setShowLeave()}
+    >
       {/* <Flex
         justifyContent="right"
         mr="60px"
@@ -25,14 +31,11 @@ const ListCard = ({ product, index }) => {
         zIndex={100}
       > */}
       <Box
-        onMouseEnter={() => setShowEnter()}
-        onMouseLeave={() => setShowLeave()}
         bg="nucba.form"
         w="850px"
         p="20px"
         borderRadius={index === 0 && '5px 5px 0px 0px'}
         lineHeight="19px"
-        position="relative"
       >
         <Flex>
           <Image
@@ -69,9 +72,9 @@ const ListCard = ({ product, index }) => {
               )}
               <Flex
                 justifyContent="left"
-                w="100px"
+                w="100%"
                 position="absolute"
-                left="230px"
+                left="330px"
               >
                 {[...Array(product.rate).keys()].map((item, index) => {
                   return (
@@ -103,11 +106,12 @@ const ListCard = ({ product, index }) => {
       {show && (
         <Button
           position="absolute"
-          m="10px"
+          m="5px"
           color="nucba.primary"
           _hover={{ color: 'nucba.hoverElement' }}
           bg="transparent"
-          left="51%"
+          top="5px"
+          left="92%"
         >
           <AiOutlineHeart />
         </Button>

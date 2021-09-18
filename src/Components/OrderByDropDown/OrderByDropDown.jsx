@@ -3,18 +3,11 @@ import {
   MenuButton,
   MenuList,
   MenuItem,
-  MenuItemOption,
-  MenuGroup,
-  MenuOptionGroup,
-  MenuIcon,
-  MenuCommand,
-  MenuDivider,
   Button,
   Flex,
-  Box,
   Text,
 } from '@chakra-ui/react';
-import { ChevronDownIcon } from '@chakra-ui/icons';
+
 import { BiChevronDown } from 'react-icons/bi';
 const DropDown = () => {
   return (
