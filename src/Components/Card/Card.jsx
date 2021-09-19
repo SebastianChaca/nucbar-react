@@ -1,5 +1,12 @@
-import { Box, Text, Image, Flex, Skeleton } from '@chakra-ui/react';
-import { Link } from 'react-router-dom';
+import {
+  Box,
+  Text,
+  Image,
+  Flex,
+  Skeleton,
+  LinkOverlay,
+} from '@chakra-ui/react';
+import { Link as ReachLink } from 'react-router-dom';
 
 export const Card = ({
   index,
@@ -25,18 +32,18 @@ export const Card = ({
   }
 
   return (
-    <Link>
-      <Flex justifyContent="center" my="20px" position="relative">
-        <Box
-          w="220px"
-          h="340px"
-          bg="#ffffff"
-          borderRadius="2px"
-          py="10px"
-          mr={{ md: '20px', lg: '20px' }}
-          boxShadow="sm"
-          _hover={{ boxShadow: '5px 5px 17px 1px rgba(181,78,159,0.36)' }}
-        >
+    <Flex justifyContent="center" my="20px" position="relative">
+      <Box
+        w="220px"
+        h="340px"
+        bg="#ffffff"
+        borderRadius="2px"
+        py="10px"
+        mr={{ md: '20px', lg: '20px' }}
+        boxShadow="sm"
+        _hover={{ boxShadow: '5px 5px 17px 1px rgba(181,78,159,0.36)' }}
+      >
+        <LinkOverlay as={ReachLink} to={`/product/${product?.id}`}>
           <Image
             m="auto"
             boxSize="220px"
@@ -74,27 +81,19 @@ export const Card = ({
                   </Text>
                 )}
               </Flex>
-              {/* <Box>
-                {product && product.descuento && (
-                  <Text fontSize="10px" as="s" color="gray.400">
-                    ${product && product.price}
-                  </Text>
-                )}
-              </Box> */}
-
               <Text fontSize="sm" color="gray.500" mt="2px">
                 {product && product.shortDescription}
               </Text>
             </Box>
           </Box>
-        </Box>
-        {/* {showBtn && (index === 0 || index === lastElement) && (
+        </LinkOverlay>
+      </Box>
+      {/* {showBtn && (index === 0 || index === lastElement) && (
           <Btn index={index} lastElement={lastElement} />
         )} */}
-        {/* {(index === 0 || index === lastElement) && (
+      {/* {(index === 0 || index === lastElement) && (
           <Btn index={index} lastElement={lastElement} />
         )} */}
-      </Flex>
-    </Link>
+    </Flex>
   );
 };
