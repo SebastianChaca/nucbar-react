@@ -44,7 +44,7 @@ const NavBar = () => {
             <Box
               position="absolute"
               color="nucba.form"
-              bottom={{ base: '15px', sm: '15px', md: '22px', lg: '22px' }}
+              bottom={{ base: '15px', sm: '15px', md: '16px', lg: '16px' }}
               left="17px"
             >
               <Text fontSize="11px">0</Text>

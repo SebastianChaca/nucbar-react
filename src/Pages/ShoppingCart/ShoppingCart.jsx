@@ -7,15 +7,20 @@ import CartTotalFixed from '../../Components/CartCard/CartTotalFixed';
 
 const ShoppingCart = () => {
   const [heigth, setHeight] = useState();
+  const products = 8;
+  const productsLenght = 8;
+  useEffect(() => {
+    if (products) {
+      setHeight(productsLenght * 160);
+    }
+  }, []);
   useEffect(() => {
     window.addEventListener('scroll', () => {
       setHeight(window.pageYOffset);
     });
     return () => window.removeEventListener('scroll', () => {});
   });
-  console.log(heigth);
-  const productsLenght = 8;
-  console.log((productsLenght - 1) * 180);
+
   return (
     <>
       <Flex
@@ -39,7 +44,7 @@ const ShoppingCart = () => {
         <CartCard />
         <CartCard />
         <CartTotal />
-        {productsLenght > 2 && heigth < productsLenght * 150 && (
+        {productsLenght > 2 && heigth <= productsLenght * 160 && (
           <CartTotalFixed />
         )}
       </Flex>
