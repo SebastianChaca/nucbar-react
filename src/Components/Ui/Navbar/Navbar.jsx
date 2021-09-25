@@ -38,17 +38,19 @@ const NavBar = () => {
     return (
       <Flex>
         <LogBtn display={containerResponsive} />
-        <Flex mr="10px" position="relative">
-          <FiShoppingCart color="#fff" fontSize="20px" />
-          <Box
-            position="absolute"
-            color="nucba.form"
-            bottom={{ base: '15px', sm: '15px', md: '22px', lg: '22px' }}
-            left="17px"
-          >
-            <Text fontSize="11px">0</Text>
-          </Box>
-        </Flex>
+        <Link to="/cart">
+          <Flex mr="10px" position="relative">
+            <FiShoppingCart color="#fff" fontSize="20px" />
+            <Box
+              position="absolute"
+              color="nucba.form"
+              bottom={{ base: '15px', sm: '15px', md: '22px', lg: '22px' }}
+              left="17px"
+            >
+              <Text fontSize="11px">0</Text>
+            </Box>
+          </Flex>
+        </Link>
       </Flex>
     );
   };

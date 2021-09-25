@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { Image } from '@chakra-ui/image';
 import { Box, Flex, Text, Button, LinkOverlay } from '@chakra-ui/react';
-import { FaStar, FaRegStar } from 'react-icons/fa';
 import { AiOutlineHeart } from 'react-icons/ai';
 import { Link as ReachLink } from 'react-router-dom';
 import StarsRate from '../StarsRate/StarsRate';

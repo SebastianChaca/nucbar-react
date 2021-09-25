@@ -1,4 +1,4 @@
-import { Box, Text, Flex } from '@chakra-ui/layout';
+import { Text, Flex } from '@chakra-ui/layout';
 import StarsRate from '../StarsRate/StarsRate';
 
 const PriceDetail = ({ product }) => {
